@@ -9,7 +9,13 @@ class App extends Component {
       search: null
     }
   }
-  
+
+  handleSearch = (e) => {
+    this.setState({
+      search: e.target.value
+    })
+  }
+
 	render() {
 		const elementStyle = {
 			border: "solid",
@@ -27,6 +33,8 @@ class App extends Component {
 				<input
 					type="text"
 					style={elementStyle}
+          value={this.state.search}
+          onChange={(e) => this.handleSearch(e)}
 					placeholder="Enter item to be searched"
 				/>
 				{items}
